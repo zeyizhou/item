@@ -6,3 +6,4 @@ django-crispy_forms
 django_excel
 pyexcel-xls
 pyexcel-xlsx
+requests
