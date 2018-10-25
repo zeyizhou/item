@@ -1,0 +1,44 @@
+{%extends "base.html" %}
+{% block mainbody %}
+<div class="container">
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Sold</th>
+            <th scope="col">Add date</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in all_item_list %}
+        <tr>
+            <th scope="row">{{ item.id }}</th>
+            <th><a href="{% url 'price:detail' item.id %}">{{ item.name }}</a></th>
+            <td>{{ item.price }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.sold_quantity }}</td>
+            <td>{{ item.pub_date }}</td>
+            <td><a class="btn btn-default" role="button" href="{% url 'price:item_update' item.id %}"><i class="fas fa-edit"></i></a></td>
+            <td>
+                <form action="{% url 'price:item_delete' item.id %}" method="post" class="form-inline my-2 my-lg-0">
+                    {% csrf_token %}
+                    <input type="hidden" name="item_id" value="{{item.id}}"/>
+                    <button type="submit" class="btn btn-default btn-sm">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}
+

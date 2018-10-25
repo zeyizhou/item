@@ -1,0 +1,14 @@
+
+{%extends "base.html" %}
+{% block mainbody %}
+<div class="container">
+    <ul>
+        <li>{{ item.name }}</li>
+        <li>{{ item.price }}</li>
+        <li>{{ item.quantity }}</li>
+        <li>{{ item.sold_quantity }}</li>
+        <li>{{ item.pub_date }}</li>
+    </ul>
+    <a class="btn btn-primary" role="button" href="{% url 'price:item_update' item.id %}">Edit</a>
+</div>
+{% endblock %}

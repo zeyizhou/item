@@ -1,0 +1,8 @@
+django
+gunicorn
+django-heroku
+django-bootstrap3
+django-crispy_forms
+django_excel
+pyexcel-xls
+pyexcel-xlsx
