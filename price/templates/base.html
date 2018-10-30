@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 {% load static %}
+{% load widget_tweaks %}
 <html lang="en">
 <head>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
           integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
     <link rel="stylesheet"
@@ -40,6 +42,9 @@
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'price:import' %}">Upload<span class="sr-only"></span></a>
+            </li>
+             <li class="nav-item active">
+                <a class="nav-link" href="{% url 'price:ticket' %}">Ticket<span class="sr-only"></span></a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" action="{% url 'price:search_item_view' %}" method="get">

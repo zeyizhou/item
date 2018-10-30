@@ -7,3 +7,5 @@ django_excel
 pyexcel-xls
 pyexcel-xlsx
 requests
+json
+django-widget-tweaks
