@@ -4,6 +4,8 @@ from django.db import models
 from django.db import models
 import datetime
 from django.utils import timezone
+from django import forms
+import time
 
 
 class  Item(models.Model):
@@ -11,7 +13,7 @@ class  Item(models.Model):
     price = models.IntegerField('Price')
     quantity = models.IntegerField('Quantity', default=0)
     sold_quantity = models.IntegerField('Sold Quantity', default=0)
-    pub_date = models.DateTimeField('date added', default=timezone.now)
+    pub_date = models.DateField('date added', default=str(time.strftime ('%Y-%m-%d', time.localtime (time.time ()))))
 
     def __str__(self):
         return self.name

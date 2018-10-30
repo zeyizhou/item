@@ -33,7 +33,7 @@ class PersonCreateView (generic.CreateView):
     template_name = 'price/add.html'
     fields = '__all__'
 
-    initial = {'pub_date': timezone.now ()}
+
     success_url = reverse_lazy ('price:index')
 
 
