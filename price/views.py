@@ -188,15 +188,16 @@ def get_ticket(request):
                                 "asymetricalItinerary": {}},
                            "rangeEnd": rangeEnd,
                            "rangeStart": rangeStart}
-
+            user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"
             payloadHeader = {
                 'Host': 'www.oui.sncf',
                 'Content-Type': 'application/json;charset=UTF-8',
+                "User-Agent": user_agent
             }
             # 下载超时
             timeOut = 25
 
-            r = requests.post (postUrl, data=json.dumps (payloadData), headers=payloadHeader)
+            r = requests.post(postUrl, data=json.dumps (payloadData), headers=payloadHeader)
             dumpJsonData = json.dumps (payloadData)
             # print(f"dumpJsonData = {dumpJsonData}")
             res = requests.post (postUrl, data=dumpJsonData, headers=payloadHeader, timeout=timeOut,
