@@ -16,6 +16,8 @@ class  Item(models.Model):
     sold_quantity = models.IntegerField('Sold Quantity', default=0, blank=True)
     pub_date = models.DateField('date added', blank=True, default=str(time.strftime ('%Y-%m-%d', time.localtime (time.time ()))))
 
+    class Meta:
+        ordering = ['mark', 'name', '-price']
     def __str__(self):
         return self.name
 
