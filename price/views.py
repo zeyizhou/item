@@ -16,7 +16,7 @@ from .forms import SNCF, UploadFileForm
 
 
 def index(request):
-    all_item_list = Item.objects.order_by ('name')
+    all_item_list = Item.objects.order_by ('-price')
     context = {
         'all_item_list': all_item_list,
     }
