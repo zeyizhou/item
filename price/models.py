@@ -10,11 +10,11 @@ import time
 
 class  Item(models.Model):
     mark = models.CharField('Mark', max_length=200, blank=True)
-    name = models.CharField('Name', max_length=200)
-    price = models.IntegerField('Price', default=0)
-    quantity = models.IntegerField('Quantity', default=0)
-    sold_quantity = models.IntegerField('Sold Quantity', default=0)
-    pub_date = models.DateField('date added', default=str(time.strftime ('%Y-%m-%d', time.localtime (time.time ()))))
+    name = models.CharField('Name', max_length=200, blank=True)
+    price = models.IntegerField('Price', default=0, blank=True)
+    quantity = models.IntegerField('Quantity', default=0, blank=True)
+    sold_quantity = models.IntegerField('Sold Quantity', default=0, blank=True)
+    pub_date = models.DateField('date added', blank=True, default=str(time.strftime ('%Y-%m-%d', time.localtime (time.time ()))))
 
     def __str__(self):
         return self.name
