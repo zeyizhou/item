@@ -1,5 +1,5 @@
 import json
-
+import random
 import time
 import datetime
 import requests
@@ -209,10 +209,9 @@ def get_ticket(request):
             user_agent = random.choice(user_agents)
             payloadHeader = {
                 'Host': 'www.oui.sncf',
-                'Accept': '*/*'
-                'Accept-Encoding': 'gzip, deflate, br'
-                'Accept-Language': 'zh,de;q=0.9,en-US;q=0.8,en;q=0.7,fr;q=0.6,zh-CN;q=0.5'
-                'Connection': 'keep-alive'
+                'Accept': '*/*',
+                'Accept-Language': 'zh,de;q=0.9,en-US;q=0.8,en;q=0.7,fr;q=0.6,zh-CN;q=0.5',
+                'Connection': 'keep-alive',
                 'Content-Type': 'application/json;charset=UTF-8',
                 "User-Agent": user_agent
             }
