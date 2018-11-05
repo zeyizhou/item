@@ -10,17 +10,25 @@ from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.views import generic
 from django.urls import reverse_lazy
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Item
 from .forms import SNCF, UploadFileForm
 
 
 def index(request):
-    all_item_list = Item.objects.order_by ('-price')
-    context = {
-        'all_item_list': all_item_list,
-    }
-    return render (request, 'price/index.html', context)
+    page = request.GET.get ('page', 1)
+
+    all_item_list = Item.objects.all()
+
+    paginator = Paginator (all_item_list, 9)
+    try:
+        items = paginator.page (page)
+    except PageNotAnInteger:
+        items = paginator.page (1)
+    except EmptyPage:
+        items = paginator.page (paginator.num_pages)
+    return render (request, 'price/index.html', { 'items': items })
 
 
 class DetailView (generic.DetailView):

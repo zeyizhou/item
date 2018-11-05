@@ -1,22 +1,25 @@
 {%extends "base.html" %}
 {% load staticfiles %}
+{% load bootstrap4 %}
 {% block mainbody %}
 <div class="container">
 
-    <table class=" sortable table table-striped table-bordered table-hover" >
+    <table class="sortable table table-striped table-bordered table-hover" >
         <thead class="thead-dark">
         <tr>
-            <th scope="col">Mark</th>
-            <th scope="col">Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Sold</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Delete</th>
+            <th scope="col">品牌</th>
+            <th scope="col">名称</th>
+            <th scope="col">法国价格</th>
+            <th scope="col">国内价格</th>
+            <th scope="col">定价</th>
+            <th scope="col">数量</th>
+            <th scope="col">售出数量</th>
+            <th scope="col">编辑</th>
+            <th scope="col">删除</th>
         </tr>
         </thead>
         <tbody>
-        {% for item in all_item_list %}
+        {% for item in items %}
         <tr>
             <td>{{ item.mark }}</td>
             <th><a href="{% url 'price:detail' item.id %}">{{ item.name }}</a></th>
@@ -37,6 +40,30 @@
         {% endfor %}
         </tbody>
     </table>
+
+    {% if items.has_other_pages %}
+  <ul class="pagination">
+    {% if items.has_previous %}
+      <li class="active"><a  class="page-link" href="?page={{ items.previous_page_number }}">Previous</a></li>
+    {% else %}
+      <li class="disabled"><a class="page-link" href="#"><span>Previous</span></a></li>
+    {% endif %}
+    {% for i in items.paginator.page_range %}
+      {% if items.number == i %}
+        <li class="page-item active">
+            <a class="page-link" href="#"><span>{{ i }} <span class="sr-only">(current)</span></span></a>
+        </li>
+      {% else %}
+        <li class="active"><a  class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if items.has_next %}
+      <li class="active"><a  class="page-link" href="?page={{ items.next_page_number }}">Next</a></li>
+    {% else %}
+      <li class="disabled"><a class="page-link" href="#"><span>Next</span></a></li>
+    {% endif %}
+  </ul>
+{% endif %}
 
 </div>
 

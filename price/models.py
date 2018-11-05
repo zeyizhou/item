@@ -11,13 +11,13 @@ import time
 class  Item(models.Model):
     mark = models.CharField('Mark', max_length=200, blank=True)
     name = models.CharField('Name', max_length=200, blank=True)
-    price = models.IntegerField('Price', default=0, blank=True)
+    fr_price = models.IntegerField ('Franch Price', default=0, blank=True)
+    cn_price = models.IntegerField ('China Price', default=0, blank=True)
+    sale_price = models.IntegerField('sale Price', default=0, blank=True)
     quantity = models.IntegerField('Quantity', default=0, blank=True)
     sold_quantity = models.IntegerField('Sold Quantity', default=0, blank=True)
     pub_date = models.DateField('date added', blank=True, default=str(time.strftime ('%Y-%m-%d', time.localtime (time.time ()))))
 
-    class Meta:
-        ordering = ['mark', 'name', '-price']
     def __str__(self):
         return self.name
 
