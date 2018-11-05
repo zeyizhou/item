@@ -28,7 +28,11 @@
             <td>{{ item.sale_price }}</td>
             <td>{{ item.quantity }}</td>
             <td>{{ item.sold_quantity }}</td>
-            <td><a class="btn btn-default" role="button" href="{% url 'price:item_update' item.id %}"><i class="fas fa-edit"></i></a></td>
+            <td>
+                <a class="btn btn-default" role="button" href="{% url 'price:item_update' item.id %}">
+                    <i class="fas fa-edit"></i>
+                </a>
+            </td>
             <td>
                 <form action="{% url 'price:item_delete' item.id %}" method="post" class="form-inline my-2 my-lg-0">
                     {% csrf_token %}

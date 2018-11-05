@@ -65,7 +65,7 @@ def search_item(request):
         search_query = request.GET.get ('search_box', None)
         all_item_list = Item.objects.filter (name__contains=search_query)
         context = {
-            'all_item_list': all_item_list,
+            'items': all_item_list,
         }
         return render (request, 'price/index.html', context)
 
