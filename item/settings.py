@@ -125,6 +125,10 @@ SHORT_DATE_FORMAT = ['%Y-%m-%d']
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",

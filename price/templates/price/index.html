@@ -1,8 +1,9 @@
 {%extends "base.html" %}
+{% load staticfiles %}
 {% block mainbody %}
 <div class="container">
 
-    <table class="table table-striped table-bordered table-hover">
+    <table class=" sortable table table-striped table-bordered table-hover" >
         <thead class="thead-dark">
         <tr>
             <th scope="col">Mark</th>
@@ -38,5 +39,6 @@
     </table>
 
 </div>
+
 {% endblock %}
 
