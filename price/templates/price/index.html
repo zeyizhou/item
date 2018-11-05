@@ -23,7 +23,9 @@
         <tr>
             <td>{{ item.mark }}</td>
             <th><a href="{% url 'price:detail' item.id %}">{{ item.name }}</a></th>
-            <td>{{ item.price }}</td>
+            <td>{{ item.fr_price }}</td>
+            <td>{{ item.cn_price }}</td>
+            <td>{{ item.sale_price }}</td>
             <td>{{ item.quantity }}</td>
             <td>{{ item.sold_quantity }}</td>
             <td><a class="btn btn-default" role="button" href="{% url 'price:item_update' item.id %}"><i class="fas fa-edit"></i></a></td>
