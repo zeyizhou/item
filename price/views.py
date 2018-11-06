@@ -49,7 +49,7 @@ class ItemUpdate (generic.UpdateView):
     model = Item
     fields = '__all__'
     template_name = 'price/update.html'
-    success_url = reverse_lazy ('price:index')
+    success_url = reverse_lazy('price:index')
 
 
 class ItemDelete (generic.DeleteView):
