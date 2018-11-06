@@ -8,3 +8,4 @@ pyexcel-xls
 pyexcel-xlsx
 requests
 django-widget-tweaks
+Pillow

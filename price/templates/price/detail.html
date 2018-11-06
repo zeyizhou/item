@@ -8,6 +8,9 @@
         <li>{{ item.quantity }}</li>
         <li>{{ item.sold_quantity }}</li>
         <li>{{ item.pub_date }}</li>
+        {% if item.image %}
+            <li><img src="{{ item.image.url }}" width="240"></li>
+        {% endif %}
     </ul>
     <a class="btn btn-primary" role="button" href="{% url 'price:item_update' item.id %}">Edit</a>
 </div>
