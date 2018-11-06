@@ -2,14 +2,15 @@
 {%extends "base.html" %}
 {% block mainbody %}
 <div class="container">
-    <ul>
-        <li>{{ item.name }}</li>
-        <li>{{ item.price }}</li>
-        <li>{{ item.quantity }}</li>
-        <li>{{ item.sold_quantity }}</li>
-        <li>{{ item.pub_date }}</li>
+    <ul class="list-group">
+        <li class="list-group-item"><h6 class="text-primary">品牌：</h6>{{ item.mark }}</li>
+        <li class="list-group-item"><h6 class="text-primary">名称：</h6>{{ item.name }}</li>
+        <li class="list-group-item"><h6 class="text-primary">价格：</h6>{{ item.price }}</li>
+        <li class="list-group-item"><h6 class="text-primary">数量：</h6>{{ item.quantity }}</li>
+        <li class="list-group-item"><h6 class="text-primary">已售数量：</h6>{{ item.sold_quantity }}</li>
+
         {% if item.image %}
-            <li><img src="{{ item.image.url }}" width="240"></li>
+            <li class="list-group-item"><img src="{{ item.image.url }}" class="rounded float-left" width="600" height="300"></li>
         {% endif %}
     </ul>
     <a class="btn btn-primary" role="button" href="{% url 'price:item_update' item.id %}">Edit</a>
