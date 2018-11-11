@@ -3,11 +3,11 @@ import random
 import time
 import datetime
 import requests
-from django import forms
+
 from django.contrib import messages
 from django.http import HttpResponseBadRequest
 from django.shortcuts import render, redirect
-from django.utils import timezone
+
 from django.views import generic
 from django.urls import reverse_lazy
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
