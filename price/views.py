@@ -79,7 +79,7 @@ def import_data(request):
             request.FILES['file'].save_to_database (
                 model=Item,
                 mapdicts=[
-                    ['name', 'price', 'quantity', 'sold_quantity', 'pub_date']]
+                    ['name', 'fr_price', 'cn_price', 'sale_price', 'quantity', 'sold_quantity', 'pub_date']]
             )
             return redirect ('price/index')
         else:
