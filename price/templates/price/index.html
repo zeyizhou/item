@@ -22,21 +22,21 @@
         {% for item in items %}
         <tr>
             <td>{{ item.mark }}</td>
-            <th><a href="{% url 'price:detail' item.id %}">{{ item.name }}</a></th>
+            <th><a href="{% url 'price:detail' item.item_id %}">{{ item.name }}</a></th>
             <td>{{ item.fr_price }}</td>
             <td>{{ item.cn_price }}</td>
             <td>{{ item.sale_price }}</td>
             <td>{{ item.quantity }}</td>
             <td>{{ item.sold_quantity }}</td>
             <td>
-                <a class="btn btn-default" role="button" href="{% url 'price:item_update' item.id %}">
+                <a class="btn btn-default" role="button" href="{% url 'price:item_update' item.item_id %}">
                     <i class="fas fa-edit"></i>
                 </a>
             </td>
             <td>
-                <form action="{% url 'price:item_delete' item.id %}" method="post" class="form-inline my-2 my-lg-0">
+                <form action="{% url 'price:item_delete' item.item_id %}" method="post" class="form-inline my-2 my-lg-0">
                     {% csrf_token %}
-                    <input type="hidden" name="item_id" value="{{item.id}}"/>
+                    <input type="hidden" name="item_id" value="{{item.item_id}}"/>
                     <button type="submit" class="btn btn-default btn-sm">
                         <i class="fas fa-trash-alt"></i>
                     </button>

@@ -10,8 +10,9 @@ import os
 import time
 
 class  Item(models.Model):
+    item_id = models.AutoField(primary_key=True, default=1)
     mark = models.CharField('Mark', max_length=200, blank=True)
-    name = models.CharField('Name', max_length=200, blank=True,primary_key=True)
+    name = models.CharField('Name', max_length=200, blank=True)
     fr_price = models.IntegerField ('Franch Price', default=0, blank=True)
     cn_price = models.IntegerField ('China Price', default=0, blank=True)
     sale_price = models.IntegerField('sale Price', default=0, blank=True)

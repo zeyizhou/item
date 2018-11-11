@@ -13,6 +13,6 @@
             <li class="list-group-item"><img src="{{ item.image.url }}" class="rounded float-left" width="600" height="300"></li>
         {% endif %}
     </ul>
-    <a class="btn btn-primary" role="button" href="{% url 'price:item_update' item.id %}">Edit</a>
+    <a class="btn btn-primary" role="button" href="{% url 'price:item_update' item.item_id %}">Edit</a>
 </div>
 {% endblock %}
