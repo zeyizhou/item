@@ -4,7 +4,7 @@
 {% block mainbody %}
 <div class="container">
 
-    <table class="sortable table table-striped table-bordered table-hover" >
+    <table class="sortable table table-striped table-bordered table-hover">
         <thead class="thead-dark">
         <tr>
             <th scope="col">品牌</th>
@@ -47,29 +47,29 @@
         </tbody>
     </table>
 
-    {% if items.has_other_pages %}
-  <ul class="pagination">
-    {% if items.has_previous %}
-      <li class="active"><a  class="page-link" href="?page={{ items.previous_page_number }}">Previous</a></li>
-    {% else %}
-      <li class="disabled"><a class="page-link"><span>Previous</span></a></li>
-    {% endif %}
-    {% for i in items.paginator.page_range %}
-      {% if items.number == i %}
+    <!--{% if items.has_other_pages %}
+    <ul class="pagination">
+        {% if items.has_previous %}
+        <li class="active"><a class="page-link" href="?page={{ items.previous_page_number }}">Previous</a></li>
+        {% else %}
+        <li class="disabled"><a class="page-link"><span>Previous</span></a></li>
+        {% endif %}
+        {% for i in items.paginator.page_range %}
+        {% if items.number == i %}
         <li class="page-item active">
             <a class="page-link" href="#"><span>{{ i }} <span class="sr-only">(current)</span></span></a>
         </li>
-      {% else %}
-        <li class="active"><a  class="page-link" href="?page={{ i }}">{{ i }}</a></li>
-      {% endif %}
-    {% endfor %}
-    {% if items.has_next %}
-      <li class="active"><a  class="page-link" href="?page={{ items.next_page_number }}">Next</a></li>
-    {% else %}
-      <li class="disabled"><a class="page-link"><span>Next</span></a></li>
-    {% endif %}
-  </ul>
-{% endif %}
+        {% else %}
+        <li class="active"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% if items.has_next %}
+        <li class="active"><a class="page-link" href="?page={{ items.next_page_number }}">Next</a></li>
+        {% else %}
+        <li class="disabled"><a class="page-link"><span>Next</span></a></li>
+        {% endif %}
+    </ul>
+    {% endif %}-->
 
 </div>
 

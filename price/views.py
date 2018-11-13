@@ -17,18 +17,18 @@ from .forms import SNCF, UploadFileForm
 
 
 def index(request):
-    page = request.GET.get ('page', 1)
+    # page = request.GET.get ('page', 1)
 
     all_item_list = Item.objects.all()
 
-    paginator = Paginator (all_item_list, 9)
-    try:
-        items = paginator.page (page)
-    except PageNotAnInteger:
-        items = paginator.page (1)
-    except EmptyPage:
-        items = paginator.page (paginator.num_pages)
-    return render (request, 'price/index.html', { 'items': items })
+    # paginator = Paginator (all_item_list, 9)
+    # try:
+    #     items = paginator.page (page)
+    # except PageNotAnInteger:
+    #     items = paginator.page (1)
+    # except EmptyPage:
+    #     items = paginator.page (paginator.num_pages)
+    return render (request, 'price/index.html', { 'items': all_item_list })
 
 
 class DetailView (generic.DetailView):
