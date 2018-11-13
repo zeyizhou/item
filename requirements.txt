@@ -9,3 +9,4 @@ pyexcel-xlsx
 requests
 django-widget-tweaks
 Pillow
+django-import-export

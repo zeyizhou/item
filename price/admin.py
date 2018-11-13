@@ -1,9 +1,26 @@
 from django.contrib import admin
-from .models import Item
+
 
 from django.contrib import admin
 
 # Register your models here.
 from .models import Item
+from import_export import resources
+from import_export.admin import ImportExportModelAdmin
 
-admin.site.register(Item)
+
+
+
+class ItemResource(resources.ModelResource):
+
+    class Meta:
+        import_id_fields = ('name',)
+        skip_unchanged = True
+        report_skipped = False
+        model = Item
+
+
+class ItemAdmin(ImportExportModelAdmin):
+    resource_class = ItemResource
+
+admin.site.register(Item,ItemAdmin)

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'widget_tweaks',
     'bootstrap4',
+    'import_export',
 ]
 
 MIDDLEWARE = [
