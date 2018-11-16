@@ -16,7 +16,6 @@ class ItemResource(resources.ModelResource):
     class Meta:
         import_id_fields = ('name',)
         skip_unchanged = True
-        report_skipped = False
         model = Item
 
 

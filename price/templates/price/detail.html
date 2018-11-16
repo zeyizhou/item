@@ -2,10 +2,21 @@
 {%extends "base.html" %}
 {% block mainbody %}
 <div class="container">
+    <div >
+        <form action="{% url 'price:item_delete' item.id %}" method="post" class="form-inline my-2 my-lg-0">
+                    {% csrf_token %}
+                    <input type="hidden" name="item_id" value="{{item.id}}"/>
+                    <a class="btn btn-primary" role="button" href="{% url 'price:item_update' item.id %}">编辑</a>
+                    <button type="submit" class="btn btn-danger" style="position : relative; left: 80%; " >删除</button>
+        </form>
+    </div>
     <ul class="list-group">
         <li class="list-group-item"><h6 class="text-primary">品牌：</h6>{{ item.mark }}</li>
         <li class="list-group-item"><h6 class="text-primary">名称：</h6>{{ item.name }}</li>
-        <li class="list-group-item"><h6 class="text-primary">价格：</h6>{{ item.price }}</li>
+        <li class="list-group-item"><h6 class="text-primary">国内价格：</h6>{{ item.cn_price }}</li>
+        <li class="list-group-item"><h6 class="text-primary">法国价格：</h6>{{ item.fr_price }}</li>
+        <li class="list-group-item"><h6 class="text-primary">售价：</h6>{{ item.sold_price }}</li>
+        <li class="list-group-item"><h6 class="text-primary">活动价：</h6>{{ item.promo_price }}</li>
         <li class="list-group-item"><h6 class="text-primary">数量：</h6>{{ item.quantity }}</li>
         <li class="list-group-item"><h6 class="text-primary">已售数量：</h6>{{ item.sold_quantity }}</li>
 
@@ -13,6 +24,7 @@
             <li class="list-group-item"><img src="{{ item.image.url }}" class="rounded float-left" width="600" height="300"></li>
         {% endif %}
     </ul>
-    <a class="btn btn-primary" role="button" href="{% url 'price:item_update' item.id %}">Edit</a>
+
+
 </div>
 {% endblock %}
